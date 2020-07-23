@@ -1,13 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProductosComponent } from './productos/productos.component';
-import { UsuariosComponent } from './usuarios/usuarios.component';
-import { AgregarproductosComponent } from './agregarproductos/agregarproductos.component';
-import { AdminComponent } from './admin/admin.component';
+import { ProductosComponent } from './componentes/productos/productos.component';
+import { UsuariosComponent } from './componentes/usuarios/usuarios.component';
+import { AgregarproductosComponent } from './componentes/agregarproductos/agregarproductos.component';
+import { AdminComponent } from './componentes/admin/admin.component';
+import { ProductosService } from './services/productos.service';
+
 
 @NgModule({
   declarations: [
@@ -20,9 +23,10 @@ import { AdminComponent } from './admin/admin.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [ ProductosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
