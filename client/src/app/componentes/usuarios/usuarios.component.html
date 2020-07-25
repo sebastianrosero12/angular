@@ -1,1 +1,41 @@
 <p>usuarios works!</p>
+<h1>Bienvenido</h1>
+<div class="container">
+    <form (submit)="addUser(cedulaUser,nameUser,apellidoUser,emailUser,passwordUser,rolUser,telUser)">
+        <div class="form-group form-control form-control-lg">
+            <h1 class="align-bottom">Registro</h1>
+            <table class="table table-striped" >
+                
+                <tr>
+                    <td>Cedula</td>
+                    <td><input class="form-control" #cedulaUser id="id_user"type="number"></td>
+                </tr>
+                <tr>
+                    <td>Nombre</td>
+                    <td><input class="form-control" #nameUser id="id_user"type="text"></td>
+                </tr>
+                <tr>
+                    <td>Apellido</td>
+                    <td><input class="form-control" #apellidoUser id="id_user"type="text"></td>
+                </tr>
+                <tr>
+                    <td>Correo</td>
+                    <td><input class="form-control" #emailUser id="id_user" type="email"></td>
+                </tr>            
+                <tr>
+                    <td>Contraseña</td>
+                    <td><input class="form-control" #passwordUser id="id_password"type="password"></td>
+                </tr>
+                <tr>
+                    <td>Rol</td>
+                    <td><input class="form-control" #rolUser id="id_user"type="text"></td>
+                </tr>
+                <tr>
+                    <td>Telefono</td>
+                    <td><input class="form-control" #telUser id="id_user"type="text"></td>
+                </tr>
+            </table>
+            <button class="btn btn-primary">Registrar</button>
+        </div>
+    </form>
+</div>
