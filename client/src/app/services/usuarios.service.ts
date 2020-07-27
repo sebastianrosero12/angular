@@ -26,7 +26,7 @@ export class UsuariosService {
   deleteUser(id: string){
     return this.http.delete(`${this.API_URI}/${id}`);
   }
-  updateUser(id:string, updateUser:User):Observable<User>{
+  updateUser(id:string|number, updateUser:User):Observable<User>{
     return this.http.put(`${this.API_URI}/${id}`,updateUser);
   }
 

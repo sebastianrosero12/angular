@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/User';
 
 import { UsuariosService } from '../../services/usuarios.service'
-import { Subscriber } from 'rxjs';
+import { Subscriber, from } from 'rxjs';
+
+import {ActivatedRoute, Router } from '@angular/router'
 
 @Component({
   selector: 'app-usuarios',
@@ -20,6 +22,8 @@ export class UsuariosComponent implements OnInit {
     rol: 0,
     telefono:''
   };
+
+  edit: boolean = false;
 
   /* addUser(cedulaUser,nameUser,apellidoUser,emailUser,passwordUser,rolUser,telUser){
     //console.log(newUser.value);
@@ -44,10 +48,24 @@ export class UsuariosComponent implements OnInit {
     return false;
   } */
 
-  constructor(private usuariosService:UsuariosService) { }
+  constructor(private usuariosService:UsuariosService, private route: Router, private activedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    
+    const params = this.activedRoute.snapshot.params;
+    //console.log( params);
+    if(params.id){
+      this.usuariosService.getUser(params.id)
+        .subscribe(
+          res=>{
+            console.log(res);
+            this.user = res;
+            this.edit = true;
+          },
+          err=>console.log(err)
+        )
+
+      
+    }
   }
 
   saveNewUser(){
@@ -56,10 +74,28 @@ export class UsuariosComponent implements OnInit {
       .subscribe(
       res =>{
         console.log(res);
+        alert(" Registered USER");
+        this.route.navigate(['/productos']);//redireccionar a la pagina productos
+          
       },
-      err=> console.log(err)
+      err=> {
+        console.log(err);
+        alert('Unregistered USER');
+      }
+      
       
     )
+  }
+
+  updateUser(){
+    console.log(this.user);
+     this.usuariosService.updateUser(this.user.cedula,this.user)
+      .subscribe(
+        res=>{
+          console.log(res);
+        },
+        err=> console.log(err)
+      ) 
   }
 
 }

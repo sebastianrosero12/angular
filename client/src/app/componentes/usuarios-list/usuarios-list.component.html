@@ -36,7 +36,7 @@ float: right;
         <td>
           <div class="btn-group">
           
-                  <button type="button" class="btn btn-info "><i class="far fa-edit" aria-hidden="false"></i>Edit</button>
+                  <button [routerLink]="['/usuarios/edit',user.cedula]" type="button" class="btn btn-info "  ><i class="far fa-edit" aria-hidden="false"></i>Edit</button>
                
                   <button type="button" class="btn btn-danger" (click)="deleteuser(user.cedula)" ><i class="far fa-trash-alt"></i></button>            
           </div>    

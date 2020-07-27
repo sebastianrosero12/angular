@@ -35,7 +35,7 @@
                     <td><input  name="telefono" class="form-control" [(ngModel)]="user.telefono" id="id_user"type="text"></td>
                 </tr>
             </table>
-            <button class="btn btn-primary" (click)="saveNewUser()">Registrar</button>
+            <button class="btn btn-primary" (click)="edit ? updateUser() : saveNewUser()">Registrar</button>
         </div>
     </form>
 </div>
