@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/models/User';
+
+import { UsuariosService } from '../../services/usuarios.service'
+import { Subscriber } from 'rxjs';
 
 @Component({
   selector: 'app-usuarios',
@@ -7,7 +11,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsuariosComponent implements OnInit {
 
-  addUser(cedulaUser,nameUser,apellidoUser,emailUser,passwordUser,rolUser,telUser){
+  user: User= {
+    cedula: 0,
+    nombre: '',
+    apellido: '',
+    correo: '',
+    contrasena: '',
+    rol: 0,
+    telefono:''
+  };
+
+  /* addUser(cedulaUser,nameUser,apellidoUser,emailUser,passwordUser,rolUser,telUser){
     //console.log(newUser.value);
     //console.log(passworUser.value);
     let name     = nameUser.value;
@@ -28,11 +42,24 @@ export class UsuariosComponent implements OnInit {
     
 
     return false;
-  }
+  } */
 
-  constructor() { }
+  constructor(private usuariosService:UsuariosService) { }
 
   ngOnInit(): void {
+    
+  }
+
+  saveNewUser(){
+    console.log(this.user);
+    this.usuariosService.saveUser(this.user)
+      .subscribe(
+      res =>{
+        console.log(res);
+      },
+      err=> console.log(err)
+      
+    )
   }
 
 }
