@@ -10,7 +10,9 @@ import { UsuariosComponent } from './componentes/usuarios/usuarios.component';
 import { AgregarproductosComponent } from './componentes/agregarproductos/agregarproductos.component';
 import { AdminComponent } from './componentes/admin/admin.component';
 import { ProductosService } from './services/productos.service';
+import { UsuariosListComponent } from './componentes/usuarios-list/usuarios-list.component';
 
+import {UsuariosService} from './services/usuarios.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { ProductosService } from './services/productos.service';
     ProductosComponent,
     UsuariosComponent,
     AgregarproductosComponent,
-    AdminComponent
+    AdminComponent,
+    UsuariosListComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,10 @@ import { ProductosService } from './services/productos.service';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [ ProductosService],
+  providers: [ 
+    ProductosService,
+    UsuariosService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

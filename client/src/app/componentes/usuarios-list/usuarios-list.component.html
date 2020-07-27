@@ -1,0 +1,33 @@
+<p>usuarios-list works!</p>
+<div class="col-md-4 container" >
+
+<table class="table table-bordered table-hover table-lg table-responsive">
+    <thead>
+      <tr>
+        <th scope="col">Cedula</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Correo</th>
+        <th scope="col">Rol</th>
+        <th scope="col">Telefono</th>
+        <th scope="col-2">opciones</th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let user of users">
+      <tr>        
+        <td>{{ user.cedula}}</td>
+        <td>{{ user.nombre}}</td>
+        <td>{{ user.apellido}}</td>
+        <td>{{ user.correo}}</td>
+        <td>{{ user.rol}}</td>
+        <td>{{ user.telefono}}</td>
+        <td><button class="btn btn-info btn-block"><i class="fa fa-floppy-o" aria-hidden="false"></i>Edit</button>
+            <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>            
+        </td>
+        
+        
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
