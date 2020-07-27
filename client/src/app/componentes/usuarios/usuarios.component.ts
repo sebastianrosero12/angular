@@ -93,6 +93,7 @@ export class UsuariosComponent implements OnInit {
       .subscribe(
         res=>{
           console.log(res);
+          this.route.navigate(['/usuarios/list']);
         },
         err=> console.log(err)
       ) 
