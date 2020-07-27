@@ -17,7 +17,8 @@ const routes: Routes = [
   { path: "admin", component: AdminComponent },
   { path: "productos/editar/:idArticulo", component: AgregarproductosComponent},
 
-  { path: "usuarios/list",component: UsuariosListComponent}
+  { path: "usuarios/list",component: UsuariosListComponent},
+  { path: "usuarios/edit/:id",component: UsuariosComponent}
 
 ];
 

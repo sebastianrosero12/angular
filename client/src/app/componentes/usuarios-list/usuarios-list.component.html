@@ -1,7 +1,19 @@
 <p>usuarios-list works!</p>
+
+<style>
+  .previous {
+float: left;
+}
+
+.next {
+float: right;
+}
+</style>
+
 <div class="col-md-4 container" >
 
-<table class="table table-bordered table-hover table-lg table-responsive">
+<div class="table-responsive-lg">
+  <table class="table table-bordered table-hover ">
     <thead>
       <tr>
         <th scope="col">Cedula</th>
@@ -21,8 +33,13 @@
         <td>{{ user.correo}}</td>
         <td>{{ user.rol}}</td>
         <td>{{ user.telefono}}</td>
-        <td><button class="btn btn-info btn-block"><i class="fa fa-floppy-o" aria-hidden="false"></i>Edit</button>
-            <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>            
+        <td>
+          <div class="btn-group">
+          
+                  <button type="button" class="btn btn-info "><i class="far fa-edit" aria-hidden="false"></i>Edit</button>
+               
+                  <button type="button" class="btn btn-danger" (click)="deleteuser(user.cedula)" ><i class="far fa-trash-alt"></i></button>            
+          </div>    
         </td>
         
         
@@ -30,4 +47,5 @@
       
     </tbody>
   </table>
+</div>
 </div>
